@@ -6,6 +6,9 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.VideoView;
 
@@ -16,37 +19,24 @@ import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.rtsp.RtspMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 
+import java.util.WeakHashMap;
+
 
 public class  MainActivity extends AppCompatActivity {
     MQTTHelper mqttHelper;
     SwitchCompat cameraSwitch;
-    PlayerView playerView;
-    SimpleExoPlayer exoPlayer;
+
     ProgressDialog progressDialog;
-    String rtspLink = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4";
+    String httpLink = "http://192.168.1.38:5000/video_feed";
+    WebView webview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        playerView = findViewById(R.id.view1);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("buffering");
-        progressDialog.setCancelable(true);
-        playVideo();
-    }
-    private void playVideo() {
-        try {
-            exoPlayer = new SimpleExoPlayer.Builder(this).build();
-            playerView.setPlayer(exoPlayer);
-            MediaSource mediaSource = new RtspMediaSource.Factory()
-                    .createMediaSource(MediaItem.fromUri(rtspLink));
-            exoPlayer.setMediaSource(mediaSource);
-            exoPlayer.prepare();
-            exoPlayer.play();
+        webview = findViewById(R.id.webview1);
+        webview.setWebViewClient(new WebViewClient());
+        webview.loadUrl(httpLink);
 
-        }catch (Exception e){
-            progressDialog.dismiss();
-
-        }
     }
-}
+
+    }
