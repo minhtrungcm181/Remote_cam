@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:id="@+id/mainScroll"
+    tools:context=".MainActivity">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="167dp"
+    android:background="@color/white">
+    <ImageView
+        android:id="@+id/applogo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/first_logo"></ImageView>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_toRightOf="@+id/applogo"
+        android:gravity="center"
+        android:text="My Camera"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:text="Camera front"
+            android:textSize="11dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:text="Camera back" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView2"
+            android:name="com.example.remotecamera.view.Fragment1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_1" />
+    </LinearLayout>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:text="Quantity of people logging camera front"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/textQuantity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:text="Quantity of people logging camera back"
+        android:gravity="center"
+        android:textColor="@color/purple_500"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:text="Date: "
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/black"
+        android:layout_margin="2dp"/>
+
+<!--    <com.jjoe64.graphview.GraphView-->
+<!--        android:id="@+id/graph2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:background="@color/black"-->
+<!--        android:layout_margin="2dp"/>-->
+
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/buttonCamera1"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
+            android:text="Camera front:"
+            android:textOn="Camera front: On"
+            android:textOff="Camera front: Off"
+            android:textColor="@color/black"
+            android:checked="true"
+            />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/buttonCamera2"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="Camera back:"
+            android:textOn="Camera back: On"
+            android:textOff="Camera back: Off"
+            android:checked="true"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
